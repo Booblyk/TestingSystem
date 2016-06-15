@@ -40,6 +40,11 @@ namespace TestingSystem.DataBaseConfigurations
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new UserInRoleConfiguration());
         }
+
+        public virtual void Commit()
+        {
+            base.SaveChanges();
+        }
     }
 
 
