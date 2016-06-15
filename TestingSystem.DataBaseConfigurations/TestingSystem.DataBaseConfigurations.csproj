@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestingSystem.DataBaseConfigurations</RootNamespace>
     <AssemblyName>TestingSystem.DataBaseConfigurations</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +68,12 @@
     <Compile Include="Configurations\TestConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Configurations\UserInRoleConfiguration.cs" />
+    <Compile Include="Extension\UserE.cs" />
+    <Compile Include="Infrastructure\DbProvide.cs" />
+    <Compile Include="Infrastructure\IDbProvide.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\MyDisposable.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201606141821264_initial_one_booblyk_huj.cs" />
     <Compile Include="Migrations\201606141821264_initial_one_booblyk_huj.Designer.cs">
       <DependentUpon>201606141821264_initial_one_booblyk_huj.cs</DependentUpon>
@@ -77,6 +84,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="TestingSystemContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +106,7 @@
       <DependentUpon>201606142046203_new_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
