@@ -31,6 +31,10 @@ namespace TestingSystem.Services.Implementation
 
             var user = new User()   //тут змінити треба!!!
             {
+                FirstName = "1",
+                LastName = "2",
+                GroupId = 1,
+                IsActive = false,
                 PasswordSalt = "",
                 Email = email,
                PasswordHash=password

@@ -49,8 +49,11 @@ namespace TestingSystem.DataBaseConfigurations.Repositories
         }
         public void Add(T entity)
         {
-            DbEntityEntry dbEntityEntry = DataBaseContext.Entry<T>(entity);
+           // DbEntityEntry dbEntityEntry = DataBaseContext.Entry<T>(entity);
+           // var a = DataBaseContext.Set<T>();
             DataBaseContext.Set<T>().Add(entity);
+           // a.Add(entity);
+            DataBaseContext.SaveChanges();
         }
         public void Edit(T entity)
         {
