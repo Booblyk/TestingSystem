@@ -16,12 +16,12 @@ namespace TestingSystem.Web.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public string Index()
-        {
-            UnityWebapiConfig.RegisterComponents();  
-            var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
-            userServ.CreateUser("123@gmail.com", "123");
-            return "Some ";
-        }
+        //public string Index()
+        //{
+        //    UnityWebapiConfig.RegisterComponents();  
+        //    var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
+        //    userServ.CreateUser("123@gmail.com", "123");
+        //    return "Some ";
+        //}
     }
 }

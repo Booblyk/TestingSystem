@@ -7,6 +7,9 @@ using TestingSystem.Entities;
 using TestingSystem.DataBaseConfigurations.Repositories;
 using TestingSystem.DataBaseConfigurations.Infrastructure;
 using TestingSystem.DataBaseConfigurations.Extension;
+using TestingSystem.DataBaseConfigurations;
+using System.Data.Entity;
+
 
 namespace TestingSystem.Services.Implementation
 {
@@ -20,9 +23,9 @@ namespace TestingSystem.Services.Implementation
             _unitOfWork = unitOfWork;
         }
         
-        public User CreateUser(string email, string password)
+        public User CreateUser(User user1)
         {
-            var existingUser = _userRepository.GetById(email); //має бути GetBeEmail
+            var existingUser = _userRepository.GetById(user1.Email); //має бути GetBeEmail
 
             if (existingUser != null)
             {
@@ -31,13 +34,10 @@ namespace TestingSystem.Services.Implementation
 
             var user = new User()   //тут змінити треба!!!
             {
-                FirstName = "1",
-                LastName = "2",
-                GroupId = 1,
-                IsActive = false,
-                PasswordSalt = "",
-                Email = email,
-               PasswordHash=password
+                FirstName = user1.FirstName,
+                LastName = user1.LastName,
+                Email = user1.Email,
+               Password= user1.Password
             };
 
             _userRepository.Add(user);
@@ -47,7 +47,41 @@ namespace TestingSystem.Services.Implementation
             return user;
 
         }
+        public User EditUser(User user1)
+        {
+            var existingUser = _userRepository.GetSingle(user1.Id); //має бути GetBeEmail
 
+            if (existingUser == null)
+            {
+                throw new Exception("Email is already in use");
+            }
+
+
+            existingUser.Email = user1.Email;
+            existingUser.FirstName = user1.FirstName;
+
+            //  _userRepository.Edit(user);
+            //  _userRepository.Edit(existingUser);
+            var context = new TestingSystemContext();
+            context.Entry(existingUser).State = EntityState.Modified;
+            context.SaveChanges();
+              //  _unitOfWork.Commit();
+            
+
+            return existingUser;
+        }
+        public void DeleteUser(int UserId)
+        {
+            var existingUser = _userRepository.GetSingle(UserId); //має бути GetBeEmail
+            if (existingUser == null)
+            {
+                throw new Exception("Email is already in use");
+            }           
+
+            _userRepository.Delete(existingUser);
+
+            _unitOfWork.Commit();
+        }
         public User GetUser(int UserId)
         {
             return _userRepository.GetSingle(UserId);

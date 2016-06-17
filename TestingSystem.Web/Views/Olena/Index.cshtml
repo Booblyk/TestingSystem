@@ -20,7 +20,19 @@
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.PasswordHash)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserInRoles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupId)
             </th>
             <th></th>
         </tr>
@@ -32,10 +44,25 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.PasswordHash)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>                   
+                    @Html.DisplayFor(modelItem => item.UserInRoles)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupId)
+                </td>
+                <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |                                     
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
                 </td>
             </tr>
         }

@@ -9,9 +9,11 @@ namespace TestingSystem.DataBaseConfigurations
             HasRequired(t => t.Student)
                 .WithMany(t => t.Marks)
                 .HasForeignKey(t => t.StudentId);
+       
             HasRequired(t => t.Test)
                 .WithMany(t => t.Marks)
                 .HasForeignKey(t => t.TestId);
+           
 
         }
     }

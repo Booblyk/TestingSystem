@@ -57,8 +57,12 @@ namespace TestingSystem.DataBaseConfigurations.Repositories
         }
         public void Edit(T entity)
         {
-            DbEntityEntry dbEntityEntry = DataBaseContext.Entry<T>(entity);
-            dbEntityEntry.State = EntityState.Modified;
+            //DbEntityEntry dbEntityEntry = DataBaseContext.Entry<T>(entity);
+            //dbEntityEntry.State = EntityState.Modified;
+            //DataBaseContext.SaveChanges();
+
+            DataBaseContext.Entry(entity).State = EntityState.Unchanged;
+            DataBaseContext.SaveChanges();
         }
 
         public T GetSingle(int id)
@@ -77,8 +81,10 @@ namespace TestingSystem.DataBaseConfigurations.Repositories
         }
         public void Delete(T entity)
         {
-            DbEntityEntry dbEntityEntry = DataBaseContext.Entry<T>(entity);
-            dbEntityEntry.State = EntityState.Deleted;
+          //  DbEntityEntry dbEntityEntry = DataBaseContext.Entry<T>(entity);
+          //  dbEntityEntry.State = EntityState.Deleted;
+            DataBaseContext.Set<T>().Remove(entity);
+            DataBaseContext.SaveChanges();
         }
     }
 }

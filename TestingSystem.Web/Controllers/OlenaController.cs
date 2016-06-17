@@ -17,14 +17,7 @@ namespace TestingSystem.Web.Controllers
 {
     public class OlenaController : Controller
     {
-        // GET: Home
-        //public string Index()
-        //{
-        //    UnityWebapiConfig.RegisterComponents();  
-        //    var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
-        //    userServ.CreateUser("123@gmail.com", "123");
-        //    return "Some ";
-        //}
+        
         public ActionResult Index()
         {
             using (var db = new TestingSystemContext())
@@ -37,7 +30,7 @@ namespace TestingSystem.Web.Controllers
             return View();
         }
 
-        // POST: Response/Create
+       
         [HttpPost]
         public ActionResult Create(User client)
         {
@@ -46,8 +39,8 @@ namespace TestingSystem.Web.Controllers
 
                 UnityWebapiConfig.RegisterComponents();
                 var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
-                userServ.CreateUser("0@gmail.com", "123");
-                return RedirectToAction("Olena/Index");
+                userServ.CreateUser(client);
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -68,11 +61,11 @@ namespace TestingSystem.Web.Controllers
         {
             try
             {
-                using (var context = new TestingSystemContext())
-                {
-                    context.Entry(client).State = System.Data.Entity.EntityState.Modified;
-                    context.SaveChanges();
-                }
+               
+                    UnityWebapiConfig.RegisterComponents();
+                    var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
+                    userServ.EditUser(client);                   
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -97,8 +90,9 @@ namespace TestingSystem.Web.Controllers
             {
                 using (var context = new TestingSystemContext())
                 {
-                    context.Entry(client).State = System.Data.Entity.EntityState.Deleted;
-                    context.SaveChanges();
+                    UnityWebapiConfig.RegisterComponents();
+                    var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
+                    userServ.DeleteUser(id);                   
                 }
                 return RedirectToAction("Index");
             }

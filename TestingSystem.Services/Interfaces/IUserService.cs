@@ -11,6 +11,8 @@ namespace TestingSystem.Services.Interfaces
     public  interface IUserService
     {
         User GetUser(int UserId);
-        User CreateUser(string email, string password);
+        User CreateUser(User us);
+        User EditUser(User us);
+        void DeleteUser(int UserId);
     }
 }

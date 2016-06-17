@@ -1,4 +1,4 @@
-﻿
+﻿@model TestingSystem.Entities.User
 @{
     ViewBag.Title = "Delete";
 }
@@ -19,11 +19,26 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.PasswordHash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PasswordHash)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
         </dd>
 
     </dl>

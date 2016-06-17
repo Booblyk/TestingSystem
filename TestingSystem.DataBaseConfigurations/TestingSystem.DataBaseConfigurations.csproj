@@ -76,18 +76,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\AnswerConfiguration.cs" />
     <Compile Include="Configurations\BaseEntityConfiguration.cs" />
-    <Compile Include="Configurations\CourseConfiguration.cs" />
-    <Compile Include="Configurations\GroupConfiguration.cs" />
     <Compile Include="Configurations\MarkConfiguration.cs" />
     <Compile Include="Configurations\QuestionConfiguration.cs" />
-    <Compile Include="Configurations\RoleConfiguration.cs" />
-    <Compile Include="Configurations\SubjectConfiguration.cs" />
-    <Compile Include="Configurations\TeacherSubjectConfiguration.cs" />
     <Compile Include="Configurations\TestConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
-    <Compile Include="Configurations\UserInRoleConfiguration.cs" />
     <Compile Include="Extension\UserE.cs" />
     <Compile Include="Infrastructure\DbProvide.cs" />
     <Compile Include="Infrastructure\IDbProvide.cs" />
@@ -109,6 +102,18 @@
     <Compile Include="Migrations\201606161511121_new_mo=igration_for_check.cs" />
     <Compile Include="Migrations\201606161511121_new_mo=igration_for_check.Designer.cs">
       <DependentUpon>201606161511121_new_mo=igration_for_check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606171826313_new_base_new_migration.cs" />
+    <Compile Include="Migrations\201606171826313_new_base_new_migration.Designer.cs">
+      <DependentUpon>201606171826313_new_base_new_migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606171832309_new_base_new_migration_new.cs" />
+    <Compile Include="Migrations\201606171832309_new_base_new_migration_new.Designer.cs">
+      <DependentUpon>201606171832309_new_base_new_migration_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606171849555_new_base_new_migration_new_new.cs" />
+    <Compile Include="Migrations\201606171849555_new_base_new_migration_new_new.Designer.cs">
+      <DependentUpon>201606171849555_new_base_new_migration_new_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,6 +143,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606161511121_new_mo=igration_for_check.resx">
       <DependentUpon>201606161511121_new_mo=igration_for_check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606171826313_new_base_new_migration.resx">
+      <DependentUpon>201606171826313_new_base_new_migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606171832309_new_base_new_migration_new.resx">
+      <DependentUpon>201606171832309_new_base_new_migration_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606171849555_new_base_new_migration_new_new.resx">
+      <DependentUpon>201606171849555_new_base_new_migration_new_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
