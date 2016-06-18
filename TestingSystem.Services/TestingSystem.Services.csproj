@@ -49,7 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\QuestionService.cs" />
+    <Compile Include="Implementation\TestPassingService.cs" />
     <Compile Include="Implementation\UserService.cs" />
+    <Compile Include="Interfaces\IQuestionService.cs" />
+    <Compile Include="Interfaces\ITestPassingService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

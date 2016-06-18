@@ -19,11 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PasswordHash)
+            @Html.DisplayNameFor(model => model.Password)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PasswordHash)
+            @Html.DisplayFor(model => model.Password)
         </dd>
 
         <dt>
@@ -40,7 +40,12 @@
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
     </dl>
 
     @using (Html.BeginForm())

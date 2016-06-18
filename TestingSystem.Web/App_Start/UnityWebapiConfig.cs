@@ -29,6 +29,10 @@ namespace TestingSystem.Web.App_Start
             Сontainer.RegisterType<IRepository<User>, Repository<User>>();
 
             Сontainer.RegisterType<IDbProvide, DbProvide>();
+
+            Сontainer.RegisterType<ITestPassingService, TestPassingService>();
+
+            Сontainer.RegisterType<IQuestionService, QuestionService>();
         }
 
       

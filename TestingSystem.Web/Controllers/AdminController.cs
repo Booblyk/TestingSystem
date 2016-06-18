@@ -15,7 +15,8 @@ using TestingSystem.Web;
 
 namespace TestingSystem.Web.Controllers
 {
-    public class OlenaController : Controller
+ //   [Authorize(Roles = "Admin")]
+    public class AdminController : Controller
     {
         
         public ActionResult Index()
