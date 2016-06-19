@@ -87,33 +87,17 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\MyDisposable.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201606141821264_initial_one_booblyk_huj.cs" />
-    <Compile Include="Migrations\201606141821264_initial_one_booblyk_huj.Designer.cs">
-      <DependentUpon>201606141821264_initial_one_booblyk_huj.cs</DependentUpon>
+    <Compile Include="Migrations\201606181529371__new_data_base.cs" />
+    <Compile Include="Migrations\201606181529371__new_data_base.Designer.cs">
+      <DependentUpon>201606181529371__new_data_base.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606142046203_new_migration.cs" />
-    <Compile Include="Migrations\201606142046203_new_migration.Designer.cs">
-      <DependentUpon>201606142046203_new_migration.cs</DependentUpon>
+    <Compile Include="Migrations\201606181540147_add_column.cs" />
+    <Compile Include="Migrations\201606181540147_add_column.Designer.cs">
+      <DependentUpon>201606181540147_add_column.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606161510270_new_migration1.cs" />
-    <Compile Include="Migrations\201606161510270_new_migration1.Designer.cs">
-      <DependentUpon>201606161510270_new_migration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606161511121_new_mo=igration_for_check.cs" />
-    <Compile Include="Migrations\201606161511121_new_mo=igration_for_check.Designer.cs">
-      <DependentUpon>201606161511121_new_mo=igration_for_check.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606171826313_new_base_new_migration.cs" />
-    <Compile Include="Migrations\201606171826313_new_base_new_migration.Designer.cs">
-      <DependentUpon>201606171826313_new_base_new_migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606171832309_new_base_new_migration_new.cs" />
-    <Compile Include="Migrations\201606171832309_new_base_new_migration_new.Designer.cs">
-      <DependentUpon>201606171832309_new_base_new_migration_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606171849555_new_base_new_migration_new_new.cs" />
-    <Compile Include="Migrations\201606171849555_new_base_new_migration_new_new.Designer.cs">
-      <DependentUpon>201606171849555_new_base_new_migration_new_new.cs</DependentUpon>
+    <Compile Include="Migrations\201606181608335__some_new_error.cs" />
+    <Compile Include="Migrations\201606181608335__some_new_error.Designer.cs">
+      <DependentUpon>201606181608335__some_new_error.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,29 +116,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606141821264_initial_one_booblyk_huj.resx">
-      <DependentUpon>201606141821264_initial_one_booblyk_huj.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606181529371__new_data_base.resx">
+      <DependentUpon>201606181529371__new_data_base.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606142046203_new_migration.resx">
-      <DependentUpon>201606142046203_new_migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606181540147_add_column.resx">
+      <DependentUpon>201606181540147_add_column.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606161510270_new_migration1.resx">
-      <DependentUpon>201606161510270_new_migration1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606161511121_new_mo=igration_for_check.resx">
-      <DependentUpon>201606161511121_new_mo=igration_for_check.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606171826313_new_base_new_migration.resx">
-      <DependentUpon>201606171826313_new_base_new_migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606171832309_new_base_new_migration_new.resx">
-      <DependentUpon>201606171832309_new_base_new_migration_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606171849555_new_base_new_migration_new_new.resx">
-      <DependentUpon>201606171849555_new_base_new_migration_new_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606181608335__some_new_error.resx">
+      <DependentUpon>201606181608335__some_new_error.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

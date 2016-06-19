@@ -6,7 +6,7 @@ namespace TestingSystem.Entities
     {
         public int Id { get; set; }
         public int TestId { get; set; }
-        public bool Answer { get; set; }     
+        public string Answer { get; set; }     
         public string Questionn { get; set; } 
 
         public Test Test { get; set; }

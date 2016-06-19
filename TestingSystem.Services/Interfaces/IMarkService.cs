@@ -7,11 +7,8 @@ using TestingSystem.Entities;
 
 namespace TestingSystem.Services.Interfaces
 {
-    public interface ITestPassingService
+    public interface IMarkService
     {
-        Test GetTestById(int id);
-        List<Test> GetAllTests();
-
-
+        Mark Create(User user, Test test, int Value);
     }
 }

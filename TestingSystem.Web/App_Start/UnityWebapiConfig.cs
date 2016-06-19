@@ -26,13 +26,15 @@ namespace TestingSystem.Web.App_Start
 
             Сontainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
-            Сontainer.RegisterType<IRepository<User>, Repository<User>>();
+            Сontainer.RegisterType(typeof(IRepository<User>),typeof(Repository<User>),new InjectionConstructor(typeof(IDbProvide)));
 
             Сontainer.RegisterType<IDbProvide, DbProvide>();
 
             Сontainer.RegisterType<ITestPassingService, TestPassingService>();
 
             Сontainer.RegisterType<IQuestionService, QuestionService>();
+        
+            Сontainer.RegisterType<IMarkService, MarkService>();
         }
 
       

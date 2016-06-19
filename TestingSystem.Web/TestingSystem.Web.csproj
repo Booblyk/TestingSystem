@@ -232,8 +232,8 @@
     <Compile Include="App_Start\UnityWebapiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,13 +250,23 @@
     <Content Include="scripts\jquery-2.2.3.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Account\SuccessAccount.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Student\Result.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Account\StudentAccount.cshtml" />
+    <Content Include="Views\Account\TeacherAccount.cshtml" />
+    <Content Include="Views\Student\ListOfTests.cshtml" />
+    <Content Include="Views\T\AddQuestions.cshtml" />
+    <Content Include="Views\T\AddTest.cshtml" />
+    <Content Include="Views\T\DeleteQuestion.cshtml" />
+    <Content Include="Views\T\DeleteTest.cshtml" />
+    <Content Include="Views\T\GetAllQuestions.cshtml" />
+    <Content Include="Views\T\GetAllTests.cshtml" />
+    <Content Include="Views\T\GetQuestionByTest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

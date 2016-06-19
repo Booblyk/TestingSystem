@@ -1,0 +1,14 @@
+﻿@model List<TestingSystem.Entities.Test>
+@{
+    ViewBag.Title = "ListOfTests";
+}
+
+<h2>ListOfTests</h2>
+<div>
+    @foreach(var item in Model)
+    {
+        @Html.ActionLink(item.Description, "Index", new { id = item.Id, UserId=ViewBag.UserId });
+        <br/>
+    }
+    <a href="@Url.Action("Logout", "Account")">LogOut</a>
+</div>

@@ -1,0 +1,29 @@
+﻿@model List<TestingSystem.Services.TeacherServices.QuestionsDTO>
+    @{
+        ViewBag.Title = "Details";
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <body>
+        <h2>Get All Questions By Test</h2>
+
+        @Html.ActionLink("Back to tests", "GetAllTests");
+
+        @foreach (var item in Model)
+        {
+        <p> @item.Question @item.Value  @Html.ActionLink("Delete", "DeleteQuestion", new { id = item.ID, testId = item.TestID })</p>  
+        }
+        @using (Html.BeginForm( "GetQuestionByTest","T",@Model.Last()))
+        {
+            
+            @Html.TextBoxFor(x => Model.Last().Question);<br>
+            @Html.TextBoxFor(x => Model.Last().Value);
+            
+            <input type="submit" value="Add" />
+        }
+
+        @Html.ActionLink("See all Questions", "GetAllQuestions");
+    </body>
+</html>

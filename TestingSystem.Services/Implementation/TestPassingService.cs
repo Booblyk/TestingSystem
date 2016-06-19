@@ -11,6 +11,12 @@ namespace TestingSystem.Services.Implementation
 {
     public class TestPassingService : Interfaces.ITestPassingService
     {
+        public List<Test> GetAllTests()
+        {
+            var _testRepositiry = new Repository<Test>(new DbProvide());
+            return _testRepositiry.All.ToList();
+        }
+
         public Test GetTestById(int id)
         {
             var _testRepository = new Repository<Test>(new DbProvide());

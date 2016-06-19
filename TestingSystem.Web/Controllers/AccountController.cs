@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages.Deployment;
 using System.Web.Mvc;
 using TestingSystem.Web;
 using TestingSystem.Entities;
@@ -14,11 +15,14 @@ using TestingSystem.Web.App_Start;
 using Microsoft.Practices.Unity;
 using TestingSystem.Web.Models.Account;
 using TestingSystem.Web.Security;
+using System.ComponentModel.DataAnnotations;
 
 namespace TestingSystem.Web.Controllers
 {
     public class AccountController : Controller
     {
+        
+
         // GET: Account
         public ActionResult Index()
         {
@@ -27,9 +31,11 @@ namespace TestingSystem.Web.Controllers
         [HttpPost]
         public ActionResult Index(User client)
         {
+            
             try
             {
                 AccountModel am = new AccountModel();
+                client = am.Login(client.Email, client.Password);
                 if (string.IsNullOrEmpty(client.Email) ||
                     string.IsNullOrEmpty(client.Password) ||
                     am.Login(client.Email, client.Password) == null)
@@ -38,9 +44,24 @@ namespace TestingSystem.Web.Controllers
                     return View("Index");
 
                 }
-                
-                SessionPersister.Username = client.Email;
-                return View("SuccessAccount");
+                else
+                {
+                    SessionPersister.Username = client.Email;
+
+                    if (am.Login(client.Email, client.Password).Role == "Student")
+                        return RedirectToAction("ListOfTests", "Student",new { id=client.Id});
+                    if (am.Login(client.Email, client.Password).Role == "Teacher")
+                        return RedirectToAction("GetAllTests", "T");
+                    if (am.Login(client.Email, client.Password).Role == "Admin")
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        ViewBag.Error = "Invalid Role";
+                        return View("Index");
+                    }
+                }
             }
             catch
             {

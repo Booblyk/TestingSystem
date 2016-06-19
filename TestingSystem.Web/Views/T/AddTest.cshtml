@@ -1,0 +1,25 @@
+﻿@model TestingSystem.Services.TeacherServices.TestsDTO
+
+@{
+    ViewBag.Title = "AddTest";
+}
+
+<h2>AddTest</h2>
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @ViewBag.TestAdded
+    @using (Html.BeginForm())
+    {
+        @Html.TextBoxFor(x => Model.Description);
+        @*@Html.TextBoxFor(x => Model.Duration);*@
+
+        <br>
+        <input type="submit" value="Add" />
+    }
+    @Html.ActionLink("See all Tests", "GetAllTests");
+</body>
+</html>
+

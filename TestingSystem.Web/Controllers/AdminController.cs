@@ -15,23 +15,22 @@ using TestingSystem.Web;
 
 namespace TestingSystem.Web.Controllers
 {
- //   [Authorize(Roles = "Admin")]
+    // [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-        
+
         public ActionResult Index()
         {
-            using (var db = new TestingSystemContext())
-            {
-                return View(db.Users.ToList());
-            }
+            UnityWebapiConfig.RegisterComponents();
+            var UserService = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
+            return View(UserService.GetAll());
+            
         }
         public ActionResult Create()
         {
             return View();
         }
 
-       
         [HttpPost]
         public ActionResult Create(User client)
         {
@@ -50,10 +49,9 @@ namespace TestingSystem.Web.Controllers
         }
         public ActionResult Edit(int id)
         {
-            using (var db = new TestingSystemContext())
-            {
-                return View(db.Users.Find(id));
-            }
+            UnityWebapiConfig.RegisterComponents();
+            var UserService = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
+            return View(UserService.GetUser(id));           
         }
 
         // POST: Response/Edit/5
@@ -62,11 +60,11 @@ namespace TestingSystem.Web.Controllers
         {
             try
             {
-               
-                    UnityWebapiConfig.RegisterComponents();
-                    var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
-                    userServ.EditUser(client);                   
-                
+
+                UnityWebapiConfig.RegisterComponents();
+                var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
+                userServ.EditUser(client);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -77,10 +75,9 @@ namespace TestingSystem.Web.Controllers
 
         public ActionResult Delete(int id)
         {
-            using (var context = new TestingSystemContext())
-            {
-                return View(context.Users.Find(id));
-            }
+            UnityWebapiConfig.RegisterComponents();
+            var UserService = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
+            return View(UserService.GetUser(id));
         }
 
         // POST: Response/Delete/5
@@ -93,7 +90,7 @@ namespace TestingSystem.Web.Controllers
                 {
                     UnityWebapiConfig.RegisterComponents();
                     var userServ = UnityWebapiConfig.Сontainer.Resolve<IUserService>();
-                    userServ.DeleteUser(id);                   
+                    userServ.DeleteUser(id);
                 }
                 return RedirectToAction("Index");
             }

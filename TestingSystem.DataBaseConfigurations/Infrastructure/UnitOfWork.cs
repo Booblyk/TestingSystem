@@ -22,7 +22,7 @@ namespace TestingSystem.DataBaseConfigurations.Infrastructure
         {
             this.DbProvide = DbProvide;
         }
-      
+
         public IRepository<User> UserRep
         {
             get
@@ -35,8 +35,8 @@ namespace TestingSystem.DataBaseConfigurations.Infrastructure
                 return userRep;
             }
         }
-       
-       
+
+
         public IRepository<Mark> MarkRep
         {
             get
@@ -49,33 +49,46 @@ namespace TestingSystem.DataBaseConfigurations.Infrastructure
                 return markRep;
             }
         }
+        //public IRepository<Question> QuestionRep
+        //{
+        //    get
+        //    {
+        //        if (questionRep == null)
+        //        {
+        //            questionRep = new Repository<Question>(DbProvide);
+        //        }
+
+        //        return questionRep;
+        //    }
+        //}
+
         public IRepository<Question> QuestionRep
         {
             get
             {
                 if (questionRep == null)
                 {
-                    questionRep = new Repository<Question>(DbProvide);
+                    questionRep = new Repository<Question>(context);
                 }
 
                 return questionRep;
             }
         }
-       
+
         public IRepository<Test> TestRep
         {
             get
             {
                 if (testRep == null)
                 {
-                    testRep = new Repository<Test>(DbProvide);
+                    testRep = new Repository<Test>(context);
                 }
 
                 return testRep;
             }
         }
-       
-        
+
+
         public TestingSystemContext DbContext
         {
             get { return context ?? (context = DbProvide.Init()); }
@@ -83,6 +96,11 @@ namespace TestingSystem.DataBaseConfigurations.Infrastructure
         public void Commit()
         {
             DbContext.Commit();
+        }
+
+        public void Save()
+        {
+            context.SaveChanges();
         }
     }
 }

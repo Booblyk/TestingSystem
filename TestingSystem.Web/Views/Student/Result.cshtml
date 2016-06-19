@@ -1,0 +1,8 @@
+﻿@model TestingSystem.Entities.Mark
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+<h2>You collected @Model.Value points</h2>
+@Html.ActionLink("Back to Tests", "ListOfTests",new {id=Model.StudentId })

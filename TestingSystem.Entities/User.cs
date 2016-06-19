@@ -11,6 +11,8 @@ namespace TestingSystem.Entities
         public string LastName { get; set; }
         public string Role { get; set; }
 
+
+        
        
         //only for student
         public ICollection<Mark> Marks { get; set; }

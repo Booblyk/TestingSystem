@@ -1,0 +1,11 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "DeleteQuestion";
+}
+
+<h2>Question deleted </h2>
+
+@Html.ActionLink("Back to tests", "GetAllTests");
+@Html.ActionLink("Back to questions", "GetQuestionByTest", new { id = Model});
+

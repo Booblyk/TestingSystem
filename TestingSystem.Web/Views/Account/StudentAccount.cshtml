@@ -1,7 +1,7 @@
 ﻿@using TestingSystem.Web.Security
 
 @{
-    Layout = null;
+   
 }
 
 <!DOCTYPE html>
@@ -9,14 +9,15 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>SuccessAccount</title>
+    <title>StudentAccount</title>
 </head>
 <body>
     <div>
-        User: @SessionPersister.Username
+        Student`s @SessionPersister.Username Account<br />
+        
         <br>
         
-        <a href="@Url.Action("Logout", "Account")">Logout</a>
+       
     </div>
 </body>
 </html>

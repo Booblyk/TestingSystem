@@ -37,7 +37,8 @@ namespace TestingSystem.Services.Implementation
                 FirstName = user1.FirstName,
                 LastName = user1.LastName,
                 Email = user1.Email,
-               Password= user1.Password
+               Password= user1.Password,
+               Role = user1.Role
             };
 
             _userRepository.Add(user);
@@ -58,7 +59,11 @@ namespace TestingSystem.Services.Implementation
 
 
             existingUser.Email = user1.Email;
+            existingUser.Password = user1.Password;
             existingUser.FirstName = user1.FirstName;
+            existingUser.LastName = user1.LastName;
+            existingUser.Role= user1.Role;
+
 
             //  _userRepository.Edit(user);
             //  _userRepository.Edit(existingUser);
@@ -85,6 +90,11 @@ namespace TestingSystem.Services.Implementation
         public User GetUser(int UserId)
         {
             return _userRepository.GetSingle(UserId);
+        }
+
+        public List<User> GetAll()
+        {
+            return _userRepository.GetAll().ToList();
         }
     }
 }

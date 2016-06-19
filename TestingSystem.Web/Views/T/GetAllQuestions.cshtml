@@ -1,0 +1,14 @@
+﻿@model List<TestingSystem.Services.TeacherServices.QuestionsDTO>
+    @{
+        ViewBag.Title = "Details";
+    }
+
+    <h2>Get All Questions</h2>
+    @foreach (var item in Model)
+    {
+        <p>@item.Question @item.Value</p>
+        @*<p>@item.TestID  </p>*@
+
+
+    }
+    

@@ -14,5 +14,7 @@ namespace TestingSystem.Services.Interfaces
         User CreateUser(User us);
         User EditUser(User us);
         void DeleteUser(int UserId);
+        List<User> GetAll();
+
     }
 }
