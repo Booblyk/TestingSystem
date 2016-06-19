@@ -1,0 +1,22 @@
+﻿@using TestingSystem.Web.Security
+@{
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TeacherAccount</title>
+</head>
+<body>
+    <div> 
+        Teacher`s @SessionPersister.Username Account<br />
+        
+        <br>
+
+        <a href="@Url.Action("Logout", "Account")">LogOut</a>
+    </div>
+</body>
+</html>
