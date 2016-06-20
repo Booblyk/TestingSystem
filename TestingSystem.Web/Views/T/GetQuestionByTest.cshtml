@@ -1,29 +1,58 @@
 ﻿@model List<TestingSystem.Services.TeacherServices.QuestionsDTO>
     @{
-        ViewBag.Title = "Details";
+        ViewBag.Title = "GetQuestionsByTest";
+        Layout = "~/Views/Shared/_LayoutForTeacher.cshtml";
     }
 
     <!DOCTYPE html>
+<html>
+<head>
+    <title>AddQuestion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/site.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="msapplication-TileImage" content="/assets/img/metis-tile.png">
+</head>
+<body class="test">
+    <h2>Get All Questions By Test</h2>
 
-    <html>
-    <body>
-        <h2>Get All Questions By Test</h2>
+    @Html.ActionLink("Back to tests", "GetAllTests");
+    <br >
 
-        @Html.ActionLink("Back to tests", "GetAllTests");
-
+    <table class="table">
         @foreach (var item in Model)
         {
-        <p> @item.Question @item.Value  @Html.ActionLink("Delete", "DeleteQuestion", new { id = item.ID, testId = item.TestID })</p>  
-        }
-        @using (Html.BeginForm( "GetQuestionByTest","T",@Model.Last()))
-        {
-            
-            @Html.TextBoxFor(x => Model.Last().Question);<br>
-            @Html.TextBoxFor(x => Model.Last().Value);
-            
-            <input type="submit" value="Add" />
-        }
 
-        @Html.ActionLink("See all Questions", "GetAllQuestions");
-    </body>
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Delete", "DeleteQuestion", new { id = item.ID, testId = item.TestID })
+                </td>
+            </tr>
+        }
+    </table> <br >
+
+    @using (Html.BeginForm("GetQuestionByTest", "T", @Model.Last()))
+    {
+
+        @Html.TextBoxFor(x => Model.Last().Question);<br>
+        @Html.TextBoxFor(x => Model.Last().Value);<br>
+
+        <input type="submit" value="Add" />
+    }
+    <br>
+    @Html.ActionLink("See all Questions", "GetAllQuestions");
+</body>
 </html>
+

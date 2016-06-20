@@ -26,7 +26,7 @@ namespace TestingSystem.Web.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
         [HttpPost]
         public ActionResult Index(User client)

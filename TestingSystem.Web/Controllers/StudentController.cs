@@ -9,7 +9,7 @@ using TestingSystem.Services.Implementation;
 using TestingSystem.Services.Interfaces;
 using TestingSystem.Web.App_Start;
 using Microsoft.Practices.Unity;
-using System.Timers;
+using TestingSystem.Web.Security;
 
 namespace TestingSystem.Web.Controllers
 {
@@ -19,18 +19,19 @@ namespace TestingSystem.Web.Controllers
         // GET: Test
 
 
-
+        [CustomAuthorize(Roles = "Student")]
         public ActionResult ListOfTests(int id)
         {
+            if (id < 1)return RedirectToAction("Index", "Account");
             UnityWebapiConfig.RegisterComponents();
             ViewBag.UserId = id;
             var TestService = UnityWebapiConfig.Сontainer.Resolve<ITestPassingService>();
-            return View(TestService.GetAllTests());
-
+            return View("ListOfTests",TestService.GetAllTests());
+            
         }
 
-       
-      
+
+        [CustomAuthorize(Roles = "Student")]
         [HttpGet]
         public ActionResult Index(int  id, int UserId)
     {
@@ -49,6 +50,7 @@ namespace TestingSystem.Web.Controllers
             return View();
         }
 
+        [CustomAuthorize(Roles = "Student")]
         [HttpPost]
         public ActionResult Index(int id,int UserId ,List<AnswersArray> model)
         {

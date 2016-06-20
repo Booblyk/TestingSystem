@@ -11,14 +11,14 @@ using TestingSystem.Services.Interfaces;
 using TestingSystem.Services.Implementation;
 using TestingSystem.Web.App_Start;
 using Microsoft.Practices.Unity;
-using TestingSystem.Web;
+using TestingSystem.Web.Security;
 
 namespace TestingSystem.Web.Controllers
 {
     // [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Index()
         {
             UnityWebapiConfig.RegisterComponents();
@@ -26,11 +26,12 @@ namespace TestingSystem.Web.Controllers
             return View(UserService.GetAll());
             
         }
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            return View();
+            return View() ;
         }
-
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(User client)
         {
@@ -47,6 +48,7 @@ namespace TestingSystem.Web.Controllers
                 return View();
             }
         }
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             UnityWebapiConfig.RegisterComponents();
@@ -55,6 +57,7 @@ namespace TestingSystem.Web.Controllers
         }
 
         // POST: Response/Edit/5
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit(int id, User client)
         {
@@ -72,7 +75,7 @@ namespace TestingSystem.Web.Controllers
                 return View();
             }
         }
-
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             UnityWebapiConfig.RegisterComponents();
@@ -80,7 +83,8 @@ namespace TestingSystem.Web.Controllers
             return View(UserService.GetUser(id));
         }
 
-        // POST: Response/Delete/5
+        // POST: Response/Delete/5 
+        [CustomAuthorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Delete(int id, User client)
         {
@@ -98,6 +102,10 @@ namespace TestingSystem.Web.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult Comand()
+        {
+            return View();
         }
     }
 }

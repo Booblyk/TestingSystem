@@ -1,34 +1,41 @@
 ﻿@model List<TestingSystem.Web.Controllers.AnswersArray>
 @{
- 
     
+    Layout = "~/Views/Shared/_LayoutForTests.cshtml";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/site.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="msapplication-TileImage" content="/assets/img/metis-tile.png">
     <title>Index</title>
-
 </head>
 <body>
-    <div>
-            
-        @using (Html.BeginForm())
-        {
-
-            for (int i = 0; i < ViewBag.Questions.Count; i++)
+    <div class="tab-pane active">
+        <img alt="user" src="~/Content/new-file.png">
+        <hr />
+        <div class="test">
+            @using (Html.BeginForm())
             {
-                <p>
-                    @ViewBag.Questions[i].Questionn</p>
-                    <br />
+
+                for (int i = 0; i < ViewBag.Questions.Count; i++)
+                {
+                    <p>
+                        <br />
+                        @ViewBag.Questions[i].Questionn
+                    </p>
+
+
                     @Html.TextBoxFor(m => m[i].Answers)
-
+                }
+                <div><input type="submit" value="Accept" /></div>
             }
-            <br/>
-            <input type="submit" value="Accept" />
-        }
-    </div>
-    
+        </div>
+        </div>
 </body>
-
 </html>

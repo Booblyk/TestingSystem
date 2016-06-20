@@ -2,10 +2,25 @@
 
 @{
     ViewBag.Title = "DeleteQuestion";
+    
+    Layout = "~/Views/Shared/_LayoutForTeacher.cshtml";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AddQuestion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/site.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="msapplication-TileImage" content="/assets/img/metis-tile.png">
+</head>
 
-<h2>Question deleted </h2>
+<body>
+    <h2>Question deleted </h2>
 
-@Html.ActionLink("Back to tests", "GetAllTests");
-@Html.ActionLink("Back to questions", "GetQuestionByTest", new { id = Model});
-
+    @Html.ActionLink("Back to tests", "GetAllTests");
+    @Html.ActionLink("Back to questions", "GetQuestionByTest", new { id = Model });
+</body>
+</html>

@@ -25,12 +25,12 @@ namespace TestingSystem.Services.Implementation
         
         public User CreateUser(User user1)
         {
-            var existingUser = _userRepository.GetById(user1.Email); //має бути GetBeEmail
+            //var existingUser = _userRepository.GetById(user1.Email); //має бути GetBeEmail
 
-            if (existingUser != null)
-            {
-                throw new Exception("Email is already in use");
-            }
+            //if (existingUser != null)
+            //{
+            //    throw new Exception("Email is already in use");
+            //}
 
             var user = new User()   //тут змінити треба!!!
             {
@@ -75,18 +75,22 @@ namespace TestingSystem.Services.Implementation
 
             return existingUser;
         }
-        public void DeleteUser(int UserId)
+
+        public void DeleteUser(int id)
         {
-            var existingUser = _userRepository.GetSingle(UserId); //має бути GetBeEmail
+            var existingUser = _userRepository.GetSingle(id); //має бути GetBeEmail
             if (existingUser == null)
             {
                 throw new Exception("Email is already in use");
-            }           
+            }
 
-            _userRepository.Delete(existingUser);
-
+            //_userRepository.Delete(user1);
+            var context = new TestingSystemContext();
+            context.Entry(existingUser).State = EntityState.Deleted;
+            context.SaveChanges();
             _unitOfWork.Commit();
         }
+
         public User GetUser(int UserId)
         {
             return _userRepository.GetSingle(UserId);

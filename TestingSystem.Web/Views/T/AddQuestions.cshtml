@@ -1,26 +1,31 @@
 ﻿@model TestingSystem.Services.TeacherServices.QuestionsDTO
-
 @{
     ViewBag.Title = "AddQuestions";
+    Layout = "~/Views/Shared/_LayoutForTeacher.cshtml";
 }
+
 <h2>AddQuestions</h2>
-
 <!DOCTYPE html>
-
 <html>
-    <body>
-
+<head>
+    <title>AddQuestion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/site.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="msapplication-TileImage" content="/assets/img/metis-tile.png">
+</head>
+    <body class="test">
        @using (Html.BeginForm())
         {
-
-           @Html.TextBoxFor(x => Model.TestID)
+            <p>Enter id</p>
+            @Html.TextBoxFor(x => Model.TestID)<br>
+            <p>Enter question</p>
             @Html.TextBoxFor(x => Model.Question);<br>
-            @Html.TextBoxFor(x => Model.Value);
-
-            <br>
-            <input type="submit" value="Add"  />
- 
-           
+            <p>Enter value</p>
+            @Html.TextBoxFor(x => Model.Value);<br>
+            <input type="submit" value="Add"  />         
         }
         @Html.ActionLink("See all Questions", "GetAllQuestions");
     </body>

@@ -92,6 +92,8 @@ namespace TestingSystem.DataBaseConfigurations.Repositories
             return GetAll().FirstOrDefault(x => x.Id == id);
         }
 
+
+
         public IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = DataBaseContext.Set<T>();
@@ -105,6 +107,7 @@ namespace TestingSystem.DataBaseConfigurations.Repositories
         {
             DbEntityEntry dbEntityEntry = DataBaseContext.Entry<T>(entity);
             dbEntityEntry.State = EntityState.Deleted;
+           // DataBaseContext.SaveChanges();
         }
         //private TestingSystemContext dContext;
 

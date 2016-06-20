@@ -9,6 +9,7 @@ using System.Net;
 using TestingSystem.Entities;
 using TestingSystem.DataBaseConfigurations;
 using TestingSystem.DataBaseConfigurations.Infrastructure;
+using TestingSystem.Web.Security;
 
 namespace TestingSystem.Web.Controllers
 {
@@ -19,13 +20,14 @@ namespace TestingSystem.Web.Controllers
         private TestingSystemContext db = new TestingSystemContext();
         // GET: /T/
 
+
         public TController()
         {
             
         }
 
-        
 
+        [CustomAuthorize(Roles = "Teacher")]
         public ActionResult GetAllQuestions()
         {     
             Questions qu = new Questions();
@@ -33,12 +35,15 @@ namespace TestingSystem.Web.Controllers
             return View(qlist);
         }
 
+        [CustomAuthorize(Roles = "Teacher")]
         public ActionResult GetAllTests()
         {
             Tests qu = new Tests();
             List<TestsDTO> qlist = new List<TestsDTO>(qu.GetTest());
             return View(qlist);
         }
+
+        [CustomAuthorize(Roles = "Teacher")]
         [HttpGet]
         public ActionResult GetQuestionByTest(int id)
         {
@@ -48,6 +53,7 @@ namespace TestingSystem.Web.Controllers
             return View(qlist);
         }
 
+        [CustomAuthorize(Roles = "Teacher")]
         [HttpPost]
         public ActionResult GetQuestionByTest(QuestionsDTO qlist)
         {
@@ -56,6 +62,9 @@ namespace TestingSystem.Web.Controllers
             List<QuestionsDTO> nlist = new List<QuestionsDTO>(qu.GetQuestionByCourse(qlist.TestID));
             return View(nlist);
         }
+
+
+        [CustomAuthorize(Roles = "Teacher")]
         [HttpGet]
 
         public ActionResult AddQuestions()
@@ -63,6 +72,8 @@ namespace TestingSystem.Web.Controllers
             QuestionsDTO newQuestion = new QuestionsDTO();
             return View(newQuestion);
         }
+
+        [CustomAuthorize(Roles = "Teacher")]
         [HttpPost]
 
         public ActionResult AddQuestions(QuestionsDTO newQuestion)
@@ -73,6 +84,8 @@ namespace TestingSystem.Web.Controllers
             return View();
         }
 
+
+        [CustomAuthorize(Roles = "Teacher")]
         [HttpGet]
 
         public ActionResult AddTest()
@@ -81,8 +94,8 @@ namespace TestingSystem.Web.Controllers
             return View(newTest);
         }
 
-        
 
+        [CustomAuthorize(Roles = "Teacher")]
         [HttpPost]
 
         public ActionResult AddTest(TestsDTO newTest)
@@ -92,7 +105,7 @@ namespace TestingSystem.Web.Controllers
             ViewBag.TestAdded = "Test was added";
             return View();
         }
-
+        [CustomAuthorize(Roles = "Teacher")]
         public ActionResult DeleteQuestion(int id, int testId)
         {
             Questions qu = new Questions();
@@ -101,6 +114,8 @@ namespace TestingSystem.Web.Controllers
             return View(testId);
         }
 
+
+        [CustomAuthorize(Roles = "Teacher")]
         public ActionResult DeleteTest(int id)
         {
             Tests te = new Tests();
