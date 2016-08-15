@@ -50,7 +50,7 @@ namespace TestingSystem.Web.Controllers
             Questions qu = new Questions();
             List<QuestionsDTO> qlist = new List<QuestionsDTO>(qu.GetQuestionByCourse(id));
             qlist.Add(new QuestionsDTO() {TestID=id });
-            return View(qlist);
+            return View("GetQuestionByTest", qlist);
         }
 
         [CustomAuthorize(Roles = "Teacher")]

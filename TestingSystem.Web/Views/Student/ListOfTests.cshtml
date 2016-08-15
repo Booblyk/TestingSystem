@@ -1,6 +1,6 @@
 ﻿@model List<TestingSystem.Entities.Test>
 @{
-    ViewBag.Title = "ListOfTests";
+    ViewBag.Title = "List Of Tests";
     Layout = "~/Views/Shared/_LayoutForTests.cshtml";
 }
 
@@ -19,11 +19,11 @@
 </head>
 
 <h2>ListOfTests</h2>
-<div>
+<div class="test">
     @foreach (var item in Model)
     {
-        @Html.ActionLink(item.Description, "Index", new { id = item.Id, UserId = ViewBag.UserId });
-        <br />
+       <h3> @Html.ActionLink(item.Description, "Index", new { id = item.Id, UserId = ViewBag.UserId });</h3>
+        
     }
     <a href="@Url.Action("Logout", "Account")">LogOut</a>
 </div>

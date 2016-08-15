@@ -12,11 +12,13 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title>Result</title>
 </head>
-<h2 class="tab-content">Result</h2>
-<h2 class="tab-pane">You collected @Model.Value points</h2><br />
-<h2 class="tab-pane">Congratulations</h2><br />
+<div class="test">
+    <h2 class="tab-content">Result</h2>
+    <h2 class="tab-pane">You collected @Model.Value points</h2><br />
+    <h2 class="tab-pane">Congratulations</h2><br />
 
-@Html.ActionLink("Back to Tests", "ListOfTests", new { id = Model.StudentId })
 
+    @Html.ActionLink("Back to Tests", "ListOfTests", new { id = Model.StudentId })
+</div>
 
 

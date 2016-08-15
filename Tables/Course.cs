@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestingSystem.Entities
+{
+    public class Course
+    {
+        public int Id { get; set; }
+        public int GroupId { get; set; }
+        public int TeacherSubjectId { get; set; }
+
+        public Group Group { get; set; }
+        public TeacherSubject TeacherSubject { get; set; }
+
+
+    }
+}
